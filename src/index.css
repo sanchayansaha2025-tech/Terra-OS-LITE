@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  --bg: #F8FAF7; /* Very light organic green/white */
+  --ink: #1B2B1B; /* Dark forest green ink */
+  --accent: #4CAF50; /* Primary nature green */
+  --accent-soft: rgba(76, 175, 80, 0.1);
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+.card-organic {
+  @apply bg-white rounded-3xl border border-zinc-100 shadow-sm overflow-hidden;
+}
+
+.bottom-nav-blur {
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.85);
+}

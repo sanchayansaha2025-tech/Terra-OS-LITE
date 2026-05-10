@@ -1,0 +1,67 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "User profile data",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "email": { "type": "string" },
+        "preferredLanguage": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "createdAt"]
+    },
+    "PestReport": {
+      "title": "Pest Report",
+      "description": "Report of pests in a specific location",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "cropType": { "type": "string" },
+        "pestType": { "type": "string" },
+        "severity": { "type": "string", "enum": ["low", "medium", "high"] },
+        "location": {
+          "type": "object",
+          "properties": {
+            "lat": { "type": "number" },
+            "lng": { "type": "number" }
+          }
+        },
+        "imageUrl": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "cropType", "location", "createdAt"]
+    },
+    "DiseaseLog": {
+      "title": "Disease Log",
+      "description": "History of disease detection scans",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "cropType": { "type": "string" },
+        "diseaseName": { "type": "string" },
+        "severity": { "type": "string" },
+        "treatment": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "cropType", "diseaseName", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Private user profile"
+    },
+    "/pest_reports/{reportId}": {
+      "schema": "PestReport",
+      "description": "Global pest reports for the map"
+    },
+    "/users/{userId}/disease_logs/{logId}": {
+      "schema": "DiseaseLog",
+      "description": "User-specific disease detection history"
+    }
+  }
+}

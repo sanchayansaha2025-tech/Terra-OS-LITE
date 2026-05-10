@@ -1,0 +1,13 @@
+{
+  "name": "Terra-OS Lite",
+  "description": "AI-powered farming assistant for crop disease detection, soil health estimation, and profit prediction using Gemini.",
+  "requestFramePermissions": [
+    "camera",
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "AI Vision for Disease Detection",
+    "Soil Intelligence & Profit Prediction",
+    "Real-time Pest Alert Map"
+  ]
+}
